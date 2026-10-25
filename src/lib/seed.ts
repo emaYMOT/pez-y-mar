@@ -20,7 +20,7 @@ export const seedLinks: LinkButton[] = [
 
 // El modo demo muestra el catálogo real (el mismo que carga supabase/catalogo.sql).
 const catalogo = catalogoJson as {
-  categorias: { nombre: string; emoji: string; descripcion: string; portada: string; productos: { nombre: string; precio: number; unidad: PriceUnit; foto: string; disponible: boolean }[] }[]
+  categorias: { nombre: string; emoji: string; descripcion: string; portada: string; productos: { nombre: string; descripcion?: string; precio: number; unidad: PriceUnit | null; foto: string; disponible: boolean }[] }[]
 }
 
 export const seedCategories: Category[] = catalogo.categorias.map((c, i) => ({
@@ -29,7 +29,7 @@ export const seedCategories: Category[] = catalogo.categorias.map((c, i) => ({
 
 export const seedItems: MenuItem[] = catalogo.categorias.flatMap((c, ci) =>
   c.productos.map((p, pi) => ({
-    id: `i${ci + 1}-${pi + 1}`, category_id: `c${ci + 1}`, position: pi, name: p.nombre, description: null, price: p.precio,
+    id: `i${ci + 1}-${pi + 1}`, category_id: `c${ci + 1}`, position: pi, name: p.nombre, description: p.descripcion ?? null, price: p.precio,
     unit: p.unidad, image_url: p.foto, is_available: p.disponible, is_active: true,
   })),
 )

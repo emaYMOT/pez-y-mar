@@ -3,6 +3,70 @@
   "whatsapp": "https://wa.me/573015214809",
   "categorias": [
     {
+      "nombre": "Promociones",
+      "emoji": "⭐",
+      "descripcion": "Cajas y ofertas especiales. Pídelas a domicilio por WhatsApp.",
+      "portada": "media/catalogo/portada-promociones.webp",
+      "productos": [
+        {
+          "nombre": "Caja Mar y agua dulce",
+          "precio": 80000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-mar-y-agua-dulce.webp",
+          "disponible": true,
+          "descripcion": "4 tilapias rojas, 2 lb de bagre importado, 2 truchas, 2 lb de sierra en rodaja y 1 lb de camarones."
+        },
+        {
+          "nombre": "Caja Mar",
+          "precio": 70000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-mar.webp",
+          "disponible": true,
+          "descripcion": "2 lb de sierra, 2 lb de atún en rodaja y 1 lb de pargo."
+        },
+        {
+          "nombre": "Caja Mixta",
+          "precio": 75000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-mixta.webp",
+          "disponible": true,
+          "descripcion": "10 tilapias apanadas, 3½ lb de bagre importado, 10 carnes de hamburguesa, 5 muslos, 4 tilapias y 1 lb de camarones."
+        },
+        {
+          "nombre": "Caja Fitness",
+          "precio": 140000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-fitness.webp",
+          "disponible": true,
+          "descripcion": "10 filetes de pechuga de 120 g, 10 filetes de salmón de 150 g y 10 filetes de tilapia de 200 g."
+        },
+        {
+          "nombre": "Caja Pollo",
+          "precio": 70000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-pollo.webp",
+          "disponible": true,
+          "descripcion": "2 bandejas de menudencias, 3 perniles, 3 contramuslos, 5 muslos, 1 pechuga, 1 kg de alas y 1 molipollo."
+        },
+        {
+          "nombre": "Caja Cevichera",
+          "precio": 65000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-caja-cevichera.webp",
+          "disponible": true,
+          "descripcion": "2 lb de camarón, 1 lb de calamar pota, 1 lb de rejos de pulpo y 1 lb de filete de tilapia."
+        },
+        {
+          "nombre": "Oferta Salmón x10",
+          "precio": 99000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-oferta-salmon.webp",
+          "disponible": true,
+          "descripcion": "10 porciones de salmón de 200 g."
+        }
+      ]
+    },
+    {
       "nombre": "Pescados",
       "emoji": "🐟",
       "descripcion": "Enteros, porcionados y filetes.",
