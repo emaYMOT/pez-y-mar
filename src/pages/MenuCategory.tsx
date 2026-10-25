@@ -2,7 +2,7 @@ import { ChevronLeft } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import CategoryCover from '../components/CategoryCover'
-import { formatPrice } from '../lib/format'
+import { formatPrice, UNITS } from '../lib/format'
 import { loadPublicMenu, type PublicCategory } from '../lib/store'
 import { useCached } from '../lib/useCached'
 import { useRouteFocus } from '../lib/useRouteFocus'
@@ -87,15 +87,19 @@ function CategoryItems({ category, index }: { category: PublicCategory; index: n
 
       <ul className="mt-5 flex flex-col gap-3">
         {category.items.map((item) => (
-          <li key={item.id} className="vidrio flex gap-4 rounded-3xl border border-white/10 bg-noche/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_12px_30px_-18px_rgba(0,0,0,.8)] sm:p-5">
+          <li key={item.id} className="vidrio flex items-center gap-4 rounded-3xl border border-white/10 bg-noche/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_12px_30px_-18px_rgba(0,0,0,.8)] sm:p-5">
             <div className="min-w-0 flex-1">
-              <div className="flex items-baseline justify-between gap-3">
-                <h2 className="text-[1.0625rem] leading-snug font-semibold text-cal">{item.name}</h2>
-                <span className={`shrink-0 font-precio text-[1.2rem] leading-none font-medium lining-nums tabular-nums ${item.is_available ? 'text-cobre' : 'text-niebla line-through decoration-1'}`}>
+              {/* El nombre usa todo el ancho; el precio (con su unidad) va debajo. */}
+              <h2 className="text-[1.0625rem] leading-snug font-semibold text-balance text-cal">{item.name}</h2>
+              {item.price > 0 ? (
+                <p className={`mt-1.5 leading-none ${item.is_available ? 'text-cobre' : 'text-niebla line-through decoration-1'}`}>
                   {!item.is_available && <span className="sr-only">Precio, agotado: </span>}
-                  {formatPrice(item.price)}
-                </span>
-              </div>
+                  <span className="font-precio text-[1.25rem] font-medium lining-nums tabular-nums">{formatPrice(item.price)}</span>
+                  {item.unit && <span className="ml-1 text-sm text-niebla">/ {UNITS[item.unit].short}</span>}
+                </p>
+              ) : (
+                item.is_available && <p className="mt-1.5 text-sm text-niebla">Consultar precio</p>
+              )}
               {item.description && <p className="mt-1.5 text-base leading-relaxed text-niebla">{item.description}</p>}
               {!item.is_available && <span className="etiqueta mt-2 inline-block text-grafiti">{marca.agotado}</span>}
             </div>

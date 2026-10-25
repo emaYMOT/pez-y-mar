@@ -28,10 +28,10 @@ for (const [vpName, vp] of Object.entries(viewports)) {
   // Entra al modo demo para poder ver el panel.
   await page.goto(base)
   await page.evaluate(() => {
-    const raw = localStorage.getItem('pezymar-demo-v1')
+    const raw = localStorage.getItem('pezymar-demo-v2')
     const data = raw ? JSON.parse(raw) : {}
     data.session = { email: 'demo' }
-    localStorage.setItem('pezymar-demo-v1', JSON.stringify(data))
+    localStorage.setItem('pezymar-demo-v2', JSON.stringify(data))
   })
   for (const [name, hash] of pages) {
     await page.goto(base + hash)

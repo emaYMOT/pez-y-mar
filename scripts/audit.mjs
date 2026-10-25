@@ -108,7 +108,7 @@ for (const [vpName, viewport] of viewports) {
     const page = await ctx.newPage()
     await page.goto(base)
     await page.evaluate((loggedOut) => {
-      localStorage.setItem('pezymar-demo-v1', JSON.stringify(loggedOut ? {} : { session: { email: 'demo' } }))
+      localStorage.setItem('pezymar-demo-v2', JSON.stringify(loggedOut ? {} : { session: { email: 'demo' } }))
     }, !!opts.loggedOut)
     await page.goto(base + hash)
     await page.waitForTimeout(1300)

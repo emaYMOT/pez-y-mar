@@ -5,6 +5,19 @@ export function formatPrice(value: number): string {
   return `$${cop.format(value)}`
 }
 
+/** Unidades de venta: texto corto junto al precio y nombre en el panel. */
+export const UNITS = {
+  lb: { short: 'lb', long: 'Libra' },
+  unidad: { short: 'und.', long: 'Unidad' },
+  kg: { short: 'kg', long: 'Kilo' },
+} as const
+
+/** "$9.500 / lb" — o "Consultar precio" si el precio es 0. */
+export function priceText(price: number, unit: keyof typeof UNITS | null | undefined): string {
+  if (!price) return 'Consultar precio'
+  return unit ? `${formatPrice(price)} / ${UNITS[unit].short}` : formatPrice(price)
+}
+
 /** "25.000" | "$25,000" -> 25000 */
 export function parsePrice(input: string): number {
   const digits = input.replace(/\D/g, '')

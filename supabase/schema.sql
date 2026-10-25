@@ -42,14 +42,16 @@ create table if not exists public.menu_items (
   name         text not null check (char_length(name) between 1 and 70),
   description  text,
   price        integer not null check (price >= 0),  -- pesos colombianos, sin decimales
+  unit         text check (unit in ('lb', 'unidad', 'kg')),  -- se vende por libra, unidad o kilo (null = no se indica)
   image_url    text,
   position     int  not null default 0,
   is_available boolean not null default true,  -- false = "Agotado"
   is_active    boolean not null default true,  -- false = oculto del catálogo
   created_at   timestamptz not null default now()
 );
--- Por si la tabla ya existía antes de agregar fotos a las categorías.
+-- Por si las tablas ya existían antes de estas columnas.
 alter table public.menu_categories add column if not exists image_url text;
+alter table public.menu_items add column if not exists unit text check (unit in ('lb', 'unidad', 'kg'));
 
 create index if not exists menu_items_category_idx on public.menu_items (category_id);
 

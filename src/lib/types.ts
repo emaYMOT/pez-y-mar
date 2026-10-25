@@ -31,11 +31,14 @@ export interface MenuItem {
   category_id: string
   name: string
   description: string | null
-  price: number
+  price: number // 0 = "Consultar precio"
+  unit: PriceUnit | null // cómo se vende: por libra, por unidad, por kilo (null = no se indica)
   image_url: string | null
   position: number
   is_available: boolean
   is_active: boolean
 }
+
+export type PriceUnit = 'lb' | 'unidad' | 'kg'
 
 export type Draft<T extends { id: string }> = Omit<T, 'id' | 'position'> & { id?: string; position?: number }

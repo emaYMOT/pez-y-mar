@@ -1,0 +1,586 @@
+{
+  "_fuente": "CATALOGO.pdf de Pez y Mar (17 páginas). Precios en pesos colombianos. Fotos recortadas del mismo PDF.",
+  "whatsapp": "https://wa.me/573015214809",
+  "categorias": [
+    {
+      "nombre": "Pescados",
+      "emoji": "🐟",
+      "descripcion": "Enteros, porcionados y filetes.",
+      "portada": "media/catalogo/portada-pescados.webp",
+      "productos": [
+        {
+          "nombre": "Tilapia Roja",
+          "precio": 9500,
+          "unidad": "lb",
+          "foto": "media/catalogo/tilapia-roja.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Tilapia Negra",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/tilapia-negra.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Cachama",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/cachama.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Bagre Importado",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/bagre-importado.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Sierra",
+          "precio": 12500,
+          "unidad": "lb",
+          "foto": "media/catalogo/sierra.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Sierrilla",
+          "precio": 12500,
+          "unidad": "lb",
+          "foto": "media/catalogo/sierrilla.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Atún en rodaja",
+          "precio": 12500,
+          "unidad": "lb",
+          "foto": "media/catalogo/atun-en-rodaja.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Bagre Nacional",
+          "precio": 17000,
+          "unidad": "lb",
+          "foto": "media/catalogo/bagre-nacional.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Trucha",
+          "precio": 12500,
+          "unidad": "lb",
+          "foto": "media/catalogo/trucha.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Pargo Rojo",
+          "precio": 22500,
+          "unidad": "lb",
+          "foto": "media/catalogo/pargo-rojo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Bocachico Argentino",
+          "precio": 9500,
+          "unidad": "lb",
+          "foto": "media/catalogo/bocachico-argentino.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Bocachico Criollo",
+          "precio": 0,
+          "unidad": "lb",
+          "foto": "media/catalogo/bocachico-criollo.webp",
+          "disponible": false
+        },
+        {
+          "nombre": "Guacuco",
+          "precio": 0,
+          "unidad": "lb",
+          "foto": "media/catalogo/guacuco.webp",
+          "disponible": false
+        },
+        {
+          "nombre": "Pescado Seco",
+          "precio": 18000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/pescado-seco.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Atún",
+          "precio": 20000,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-atun.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Salmón",
+          "precio": 32500,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-salmon.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Basa",
+          "precio": 15500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/filete-de-basa.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Tilapia",
+          "precio": 11000,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-tilapia.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Robalo",
+          "precio": 22500,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-robalo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de Pargo",
+          "precio": 0,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-pargo.webp",
+          "disponible": false
+        },
+        {
+          "nombre": "Filete de Merluza",
+          "precio": 0,
+          "unidad": "lb",
+          "foto": "media/catalogo/filete-de-merluza.webp",
+          "disponible": false
+        },
+        {
+          "nombre": "Robalo Entero",
+          "precio": 17500,
+          "unidad": "lb",
+          "foto": "media/catalogo/robalo-entero.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Recorte de Tilapia",
+          "precio": 4500,
+          "unidad": "lb",
+          "foto": "media/catalogo/recorte-de-tilapia.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Cabeza de tilapia",
+          "precio": 3000,
+          "unidad": "lb",
+          "foto": "media/catalogo/cabeza-de-tilapia.webp",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "nombre": "Mariscos",
+      "emoji": "🦐",
+      "descripcion": "Mariscos y moluscos.",
+      "portada": "media/catalogo/portada-mariscos.webp",
+      "productos": [
+        {
+          "nombre": "Camarón Precocido",
+          "precio": 18000,
+          "unidad": "lb",
+          "foto": "media/catalogo/camaron-precocido.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Camarón Crudo",
+          "precio": 18000,
+          "unidad": "lb",
+          "foto": "media/catalogo/camaron-crudo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Anillos de Calamar",
+          "precio": 15000,
+          "unidad": "lb",
+          "foto": "media/catalogo/anillos-de-calamar.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Rejos de Calamar",
+          "precio": 12000,
+          "unidad": "lb",
+          "foto": "media/catalogo/rejos-de-calamar.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Calamar Pota",
+          "precio": 12000,
+          "unidad": "lb",
+          "foto": "media/catalogo/calamar-pota.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Langostino",
+          "precio": 40000,
+          "unidad": "lb",
+          "foto": "media/catalogo/langostino.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Mixtura",
+          "precio": 20000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/mixtura.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Palmitos",
+          "precio": 7500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/palmitos.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Mejillones",
+          "precio": 11000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/mejillones.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Almeja",
+          "precio": 5000,
+          "unidad": "lb",
+          "foto": "media/catalogo/almeja.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Jaiba",
+          "precio": 17000,
+          "unidad": "lb",
+          "foto": "media/catalogo/jaiba.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Pulpo Entero",
+          "precio": 30000,
+          "unidad": "lb",
+          "foto": "media/catalogo/pulpo-entero.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Cola de Langosta",
+          "precio": 100000,
+          "unidad": "lb",
+          "foto": "media/catalogo/cola-de-langosta.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Langosta",
+          "precio": 50000,
+          "unidad": "lb",
+          "foto": "media/catalogo/langosta.webp",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "nombre": "Pollo",
+      "emoji": "🐔",
+      "descripcion": "Entero, porcionado y filetes.",
+      "portada": "media/catalogo/portada-pollo.webp",
+      "productos": [
+        {
+          "nombre": "Pollo Entero",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/pollo-entero.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Pollo Bucanero",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/pollo-bucanero.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Gallina",
+          "precio": 6750,
+          "unidad": "lb",
+          "foto": "media/catalogo/gallina.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Pechuga Entera",
+          "precio": 6500,
+          "unidad": "lb",
+          "foto": "media/catalogo/pechuga-entera.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Alas",
+          "precio": 5500,
+          "unidad": "lb",
+          "foto": "media/catalogo/alas.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Muslo",
+          "precio": 4500,
+          "unidad": "lb",
+          "foto": "media/catalogo/muslo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Pernil",
+          "precio": 4000,
+          "unidad": "lb",
+          "foto": "media/catalogo/pernil.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Recorte de Pollo",
+          "precio": 4500,
+          "unidad": "lb",
+          "foto": "media/catalogo/recorte-de-pollo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Mollejas",
+          "precio": 0,
+          "unidad": "unidad",
+          "foto": "media/catalogo/mollejas.webp",
+          "disponible": false
+        },
+        {
+          "nombre": "Menudencias",
+          "precio": 4500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/menudencias.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Patas y Cabezas",
+          "precio": 5000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/patas-y-cabezas.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Molipollo",
+          "precio": 5500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/molipollo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de pechuga 100 g",
+          "precio": 26500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/filete-de-pechuga-100-g.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Filete de pechuga 120 g",
+          "precio": 29000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/filete-de-pechuga-120-g.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Patas",
+          "precio": 6000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/patas.webp",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "nombre": "Cerdo",
+      "emoji": "🥩",
+      "descripcion": "Porcionados y chuletas.",
+      "portada": "media/catalogo/portada-cerdo.webp",
+      "productos": [
+        {
+          "nombre": "Recorte de Costilla",
+          "precio": 5500,
+          "unidad": "lb",
+          "foto": "media/catalogo/recorte-de-costilla.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Cañón de Cerdo",
+          "precio": 12500,
+          "unidad": "lb",
+          "foto": "media/catalogo/canon-de-cerdo.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Chuleta de Cerdo",
+          "precio": 11500,
+          "unidad": "lb",
+          "foto": "media/catalogo/chuleta-de-cerdo.webp",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "nombre": "Carnes frías",
+      "emoji": "🌭",
+      "descripcion": "Salchichas y chorizos.",
+      "portada": "media/catalogo/portada-carnes-frias.webp",
+      "productos": [
+        {
+          "nombre": "Salchichón cervecero 500 g",
+          "precio": 0,
+          "unidad": "unidad",
+          "foto": "media/catalogo/salchichon-cervecero-500-g.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Salchichón cervecero 750 g",
+          "precio": 0,
+          "unidad": "unidad",
+          "foto": "media/catalogo/salchichon-cervecero-750-g.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Salchichón cervecero 3 lb",
+          "precio": 0,
+          "unidad": "unidad",
+          "foto": "media/catalogo/salchichon-cervecero-3-lb.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Butifarras",
+          "precio": 6000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/butifarras.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Salchicha Manguera",
+          "precio": 7800,
+          "unidad": "unidad",
+          "foto": "media/catalogo/salchicha-manguera.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Tocineta",
+          "precio": 12500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/tocineta.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Chorizo x 16",
+          "precio": 12500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/chorizo-x-16.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Chorizo Santa Rosano",
+          "precio": 12500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/chorizo-santa-rosano.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Hamburguesa Yumaes",
+          "precio": 9500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/hamburguesa-yumaes.webp",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "nombre": "Varios",
+      "emoji": "🛒",
+      "descripcion": "Varios y procesados.",
+      "portada": "media/catalogo/portada-varios.webp",
+      "productos": [
+        {
+          "nombre": "Coctel de Camarón",
+          "precio": 12000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/coctel-de-camaron.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Panzerottis",
+          "precio": 9500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/panzerottis.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Palitos de Queso",
+          "precio": 6000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/palitos-de-queso.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Masa de Pastelito",
+          "precio": 5500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/masa-de-pastelito.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Apanados x10",
+          "precio": 6000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/apanados-x10.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Apanados x6",
+          "precio": 6000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/apanados-x6.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Lomitos de Tilapia",
+          "precio": 7500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/lomitos-de-tilapia.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Patacón grande",
+          "precio": 5500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/patacon-grande.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Patacón mediano",
+          "precio": 5500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/patacon-mediano.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Patacón pequeño",
+          "precio": 5500,
+          "unidad": "unidad",
+          "foto": "media/catalogo/patacon-pequeno.webp",
+          "disponible": true
+        },
+        {
+          "nombre": "Torta de pescado x9",
+          "precio": 8000,
+          "unidad": "unidad",
+          "foto": "media/catalogo/torta-de-pescado-x9.webp",
+          "disponible": true
+        }
+      ]
+    }
+  ]
+}

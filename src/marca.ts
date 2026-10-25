@@ -22,6 +22,10 @@ export const marca = {
   producto: { uno: 'producto', varios: 'productos', Uno: 'Producto' },
 
   agotado: 'Agotado',
+
+  // Unidades de venta que se pueden elegir en el panel (vacío = no se muestra la opción).
+  unidades: ['lb', 'unidad', 'kg'],
+  unidadPorDefecto: 'lb',
   disponible: { etiqueta: 'Disponible', ayuda: 'Apágalo cuando no haya existencias: se verá como agotado.' },
 
   // Ejemplos que aparecen en los formularios del panel.

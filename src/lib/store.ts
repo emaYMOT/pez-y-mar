@@ -139,7 +139,7 @@ function translateError(message: string): string {
 
 // ---------------------------------------------------------------- Demo (localStorage)
 
-const DEMO_KEY = 'pezymar-demo-v1'
+const DEMO_KEY = 'pezymar-demo-v2'
 
 interface DemoData {
   settings: SiteSettings

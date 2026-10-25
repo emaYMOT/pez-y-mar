@@ -31,12 +31,14 @@ export default function HeroBackground({ dim = false }: { dim?: boolean }) {
       )}
       {/* Tinte azul sobre el video, como agua. */}
       <div className="absolute inset-0 bg-[#0a3a5c]/25 mix-blend-multiply" />
+      {/* El video del negocio trae textos encima: se oscurece un poco más para que no compitan. */}
+      <div className="absolute inset-0 bg-noche/30" />
       {/* Viñeta: los bordes se hunden en negro y la luz queda arriba a la derecha. */}
       <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_78%_10%,transparent_0%,rgba(6,18,29,.45)_55%,rgba(6,18,29,.85)_100%)]" />
       {/* Abajo, donde va el texto, se oscurece del todo para que se lea. */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-noche/35 via-50% to-noche/75" />
       {/* En el catálogo, una capa más oscura para leer productos y precios; se funde al cambiar de página. */}
-      <div className={`absolute inset-0 bg-noche/60 transition-opacity duration-700 ease-out ${dim ? 'opacity-100' : 'opacity-0'}`} />
+      <div className={`absolute inset-0 bg-noche/75 transition-opacity duration-700 ease-out ${dim ? 'opacity-100' : 'opacity-0'}`} />
     </div>
   )
 }

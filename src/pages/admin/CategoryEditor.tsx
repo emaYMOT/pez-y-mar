@@ -6,7 +6,7 @@ import ImageUpload from '../../components/ImageUpload'
 import Modal, { Button, CancelButton, ConfirmDialog } from '../../components/Modal'
 import SortableList, { MoveControls, moveInList, RowAction } from '../../components/SortableList'
 import Toggle, { Switch } from '../../components/Toggle'
-import { formatPrice, parsePrice } from '../../lib/format'
+import { formatPrice, parsePrice, priceText, UNITS } from '../../lib/format'
 import type { Category, Draft, MenuItem } from '../../lib/types'
 import { EmptyState } from './AdminApp'
 import { CategoryForm } from './MenuEditor'
@@ -32,7 +32,7 @@ export default function CategoryEditor() {
     )
   }
 
-  const blank: Draft<MenuItem> = { category_id: categoryId!, name: '', description: '', price: 0, image_url: null, is_available: true, is_active: true }
+  const blank: Draft<MenuItem> = { category_id: categoryId!, name: '', description: '', price: 0, unit: (marca.unidadPorDefecto as MenuItem['unit']) ?? null, image_url: null, is_available: true, is_active: true }
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function CategoryEditor() {
                 <span className="min-w-0 flex-1">
                   <span className={`block line-clamp-2 leading-snug font-semibold [overflow-wrap:anywhere] ${item.is_active ? '' : 'text-gris line-through decoration-1'}`}>{item.name}</span>
                   <span className="flex flex-wrap items-center gap-x-2 text-sm text-gris">
-                    <span className="tabular-nums">{formatPrice(item.price)}</span>
+                    <span className="tabular-nums">{priceText(item.price, item.unit)}</span>
                     {!item.is_available && <span className="rounded-full bg-peligro/10 px-2 text-xs font-semibold text-peligro">Agotado</span>}
                     {!item.is_active && <span className="text-xs">Oculto</span>}
                   </span>
@@ -139,23 +139,22 @@ function ItemForm({ initial, categories, onSave, onClose, onDelete, move }: {
   move?: { index: number; total: number; onMove: (direction: -1 | 1) => void }
 }) {
   const [draft, setDraft] = useState(initial)
-  const [priceText, setPriceText] = useState(initial.price ? formatPrice(initial.price).slice(1) : '')
+  const [priceInput, setPriceInput] = useState(initial.price ? formatPrice(initial.price).slice(1) : '')
   const [busy, setBusy] = useState(false)
   const [tried, setTried] = useState(false)
   const set = (fields: Partial<Draft<MenuItem>>) => setDraft((d) => ({ ...d, ...fields }))
 
   const nameError = draft.name.trim() ? '' : `Escribe el nombre del ${marca.producto.uno}.`
-  const priceError = draft.price > 0 ? '' : 'Escribe el precio.'
 
   function changePrice(text: string) {
     const value = parsePrice(text)
-    setPriceText(value ? formatPrice(value).slice(1) : '')
+    setPriceInput(value ? formatPrice(value).slice(1) : '')
     set({ price: value })
   }
 
   async function submit() {
     setTried(true)
-    if (nameError || priceError) {
+    if (nameError) {
       focusFirstInvalid()
       return
     }
@@ -192,9 +191,27 @@ function ItemForm({ initial, categories, onSave, onClose, onDelete, move }: {
         <Field label="Descripción (opcional)" hint={marca.ejemplos.descripcionProducto}>
           <TextArea value={draft.description ?? ''} onChange={(e) => set({ description: e.target.value })} maxLength={240} />
         </Field>
-        <Field label="Precio" prefix="$" error={tried ? priceError : ''}>
-          <TextInput value={priceText} onChange={(e) => changePrice(e.target.value)} inputMode="numeric" placeholder="25.000" className="pl-8 tabular-nums" />
+        <Field label="Precio" prefix="$" hint="Si lo dejas vacío, se muestra «Consultar precio».">
+          <TextInput value={priceInput} onChange={(e) => changePrice(e.target.value)} inputMode="numeric" placeholder="25.000" className="pl-8 tabular-nums" />
         </Field>
+        {marca.unidades.length > 0 && (
+          <fieldset>
+            <legend className="mb-2 font-medium">Precio por</legend>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {[...marca.unidades, null].map((u) => (
+                <button
+                  key={u ?? 'ninguna'}
+                  type="button"
+                  aria-pressed={(draft.unit ?? null) === u}
+                  onClick={() => set({ unit: u as MenuItem['unit'] })}
+                  className={`min-h-11 rounded-xl border-2 px-3 text-sm font-semibold transition-colors ${(draft.unit ?? null) === u ? 'border-cobre bg-cobre/15' : 'border-linea hover:border-tinta/30'}`}
+                >
+                  {u ? UNITS[u as keyof typeof UNITS].long : 'No indicar'}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        )}
         <div>
           <span className="mb-1.5 block font-medium">Foto (opcional)</span>
           <ImageUpload folder="items" value={draft.image_url} onChange={(url) => set({ image_url: url })} />
