@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/*
+  Pez y Mar · Del mar a tu paladar
+  Azul de mar profundo, con el turquesa del logo como acento.
+  Los nombres de los colores (noche, cobre…) vienen de la plantilla: "cobre" es el color de acento.
+  Cormorant Garamond para títulos; Onest para leer.
+*/
+@theme {
+  --color-noche: #06121d;
+  --color-noche-2: #0c1f30;
+  --color-noche-3: #143049;
+  --color-cobre: #38bfc6;
+  --color-cobre-2: #6fd6dc;
+  --color-cal: #eaf5f8;
+  --color-niebla: #a3bccb;
+  --color-grafiti: #ff8a7a;
+
+  --color-papel: #f1f6f9;
+  --color-tinta: #0a1c2b;
+  --color-gris: #4f6577;
+  --color-linea: #d6e2ea;
+  --color-peligro: #b3261e;
+  --color-exito: #1d8a5a;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Onest", system-ui, sans-serif;
+  --font-precio: "Fraunces", Georgia, serif;   /* solo los precios del catálogo */
+}
+
+html, body, #root { min-height: 100%; }
+
+/* Cormorant es fina: en semibold conserva la elegancia y se lee bien sobre fotos y video. */
+.font-display { font-weight: 600; letter-spacing: -0.005em; }
+html {
+  touch-action: manipulation;           /* sin el retraso de 300 ms al tocar */
+  scroll-padding-top: 5rem;             /* el foco no queda tapado por la barra fija */
+}
+button, a, label, select, summary, [role=button], input[type=checkbox] { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+body {
+  margin: 0;
+  background: var(--color-noche);
+  color: var(--color-cal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cobre);
+  outline-offset: 3px;
+}
+
+/* Luz que entra desde la superficie del agua, difuminada arriba a la derecha. */
+.ambiente {
+  background:
+    radial-gradient(110% 60% at 90% -8%, rgba(56,191,198, .34), rgba(20, 90, 140, .14) 45%, transparent 75%),
+    radial-gradient(60% 40% at 10% 0%, rgba(30, 80, 160, .2), transparent 70%),
+    var(--color-noche);
+  background-attachment: fixed;
+}
+
+/* Botones de vidrio del inicio: el desenfoque va dentro del botón, sobre el video. */
+.vidrio {
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0) 60%);
+}
+
+/* Etiqueta pequeña en mayúsculas espaciadas, en cobre. */
+.etiqueta {
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-cobre);
+}
+
+/* Un solo momento coreografiado: el inicio enciende sus luces en cascada. */
+@keyframes encender {
+  from { opacity: 0; transform: translateY(14px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.encender {
+  animation: encender 700ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: calc(var(--i, 0) * 50ms + 120ms);
+}
+
+/* Fondo del mar mientras no hay video: burbujas que suben y rayos de luz que se mecen. */
+@keyframes burbuja {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: .8; }
+  100% { transform: translateY(-115px); opacity: 0; }
+}
+.burbuja { animation: burbuja var(--d, 14s) linear infinite; animation-delay: var(--delay, 0s); }
+@keyframes mecer {
+  0%, 100% { transform: skewX(0deg); opacity: .9; }
+  50% { transform: skewX(-4deg); opacity: .55; }
+}
+.rayos { transform-origin: 70px 0; animation: mecer 9s ease-in-out infinite; }
+
+/* (plantilla) Luces titilantes. */
+@keyframes titilar {
+  0%, 100% { opacity: .95; }
+  50% { opacity: .45; }
+}
+.luz { animation: titilar var(--d, 4s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+
+/* Transición entre páginas (navegadores con View Transitions). */
+::view-transition-old(root) { animation: 180ms ease-in both salir; }
+::view-transition-new(root) { animation: 260ms ease-out both entrar; }
+@keyframes salir { to { opacity: 0; } }
+@keyframes entrar { from { opacity: 0; transform: translateY(8px); } }
+
+/* Ventanas del panel: suben desde abajo (respuesta a la acción de abrir). */
+@keyframes subir { from { transform: translateY(24px); opacity: 0; } }
+.modal[open] { animation: subir 220ms ease-out; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .encender, .luz, .burbuja, .rayos, .modal[open] { animation: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  html { scroll-behavior: auto; }
+}
