@@ -57,7 +57,7 @@ Para usarlos en tu computador, copia `.env.example` como `.env` y pégalos ahí.
 
 El proyecto ya está creado y conectado al repositorio de GitHub:
 
-- **Sitio:** https://pez-y-mar.pages.dev
+- **Sitio:** https://pezymar.pages.dev
 - **Repositorio:** `emaYMOT/pez-y-mar`, rama `main`
 - **Build:** `npm run build` → carpeta `dist`, con Node 22
 
