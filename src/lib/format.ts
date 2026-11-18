@@ -42,6 +42,18 @@ export function isValidUrl(input: string): boolean {
   }
 }
 
+/**
+ * Las fotos del catálogo están guardadas como rutas relativas ("media/...").
+ * Con rutas limpias (/catalogo, /admin) el navegador las resolvería dentro de
+ * esa ruta (/catalogo/media/...) y no las encontraría: las anclamos a la raíz.
+ * URLs completas, data: y blob: se dejan intactas.
+ */
+export function imageUrl(src: string | null | undefined): string | null {
+  if (!src) return null
+  if (/^(?:[a-z][a-z\d+.-]*:|\/\/|\/|#|\?)/i.test(src)) return src
+  return `/${src.replace(/^\.\//, '')}`
+}
+
 export function bySort<T extends { position: number }>(a: T, b: T) {
   return a.position - b.position
 }

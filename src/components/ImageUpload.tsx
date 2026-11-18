@@ -1,6 +1,7 @@
 import { ImagePlus, Trash2 } from 'lucide-react'
 import { useRef, useState } from 'react'
 import toast from 'react-hot-toast'
+import { imageUrl } from '../lib/format'
 import { store, type ImageFolder } from '../lib/store'
 
 export default function ImageUpload({ value, onChange, folder, round, wide }: {
@@ -40,7 +41,7 @@ export default function ImageUpload({ value, onChange, folder, round, wide }: {
         className={`${shape} relative grid shrink-0 place-items-center overflow-hidden border-2 border-dashed border-linea bg-papel text-gris transition hover:border-tinta/40`}
       >
         {value ? (
-          <img src={value} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={imageUrl(value) ?? ''} alt="" className="absolute inset-0 h-full w-full object-cover" />
         ) : (
           <span className="flex flex-col items-center gap-1 text-sm">
             <ImagePlus size={26} aria-hidden />

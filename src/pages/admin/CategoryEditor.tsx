@@ -6,7 +6,7 @@ import ImageUpload from '../../components/ImageUpload'
 import Modal, { Button, CancelButton, ConfirmDialog } from '../../components/Modal'
 import SortableList, { MoveControls, moveInList, RowAction } from '../../components/SortableList'
 import Toggle, { Switch } from '../../components/Toggle'
-import { formatPrice, parsePrice, priceText, UNITS } from '../../lib/format'
+import { formatPrice, imageUrl, parsePrice, priceText, UNITS } from '../../lib/format'
 import type { Category, Draft, MenuItem } from '../../lib/types'
 import { EmptyState } from './AdminApp'
 import { CategoryForm } from './MenuEditor'
@@ -63,7 +63,7 @@ export default function CategoryEditor() {
             <>
               <button type="button" onClick={() => setEditing(item)} title={item.name} className="flex min-h-11 min-w-0 flex-1 items-center gap-3 rounded-xl px-2 py-1 text-left transition-colors hover:bg-papel">
                 {item.image_url ? (
-                  <img src={item.image_url} alt="" className="size-12 shrink-0 rounded-xl object-cover" />
+                  <img src={imageUrl(item.image_url) ?? ''} alt="" className="size-12 shrink-0 rounded-xl object-cover" />
                 ) : (
                   <span className="size-12 shrink-0 rounded-xl bg-papel" />
                 )}

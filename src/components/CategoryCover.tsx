@@ -1,3 +1,4 @@
+import { imageUrl } from '../lib/format'
 import type { PublicCategory } from '../lib/store'
 
 // Tonos para las portadas sin foto: todos de la misma familia marina.
@@ -9,7 +10,7 @@ export function coverImage(category: PublicCategory): string | null {
 }
 
 export default function CategoryCover({ category, index, eager }: { category: PublicCategory; index: number; eager?: boolean }) {
-  const image = coverImage(category)
+  const image = imageUrl(coverImage(category))
 
   if (image) {
     return (

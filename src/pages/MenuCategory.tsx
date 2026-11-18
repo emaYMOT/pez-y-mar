@@ -2,7 +2,7 @@ import { ChevronLeft } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import CategoryCover from '../components/CategoryCover'
-import { formatPrice, UNITS } from '../lib/format'
+import { formatPrice, imageUrl, UNITS } from '../lib/format'
 import { loadPublicMenu, type PublicCategory } from '../lib/store'
 import { useCached } from '../lib/useCached'
 import { useRouteFocus } from '../lib/useRouteFocus'
@@ -104,7 +104,7 @@ function CategoryItems({ category, index }: { category: PublicCategory; index: n
               {!item.is_available && <span className="etiqueta mt-2 inline-block text-grafiti">{marca.agotado}</span>}
             </div>
             {item.image_url && (
-              <img src={item.image_url} alt="" loading="lazy" width={112} height={112} className={`size-24 shrink-0 rounded-xl object-cover sm:size-28 ${item.is_available ? '' : 'opacity-50 grayscale'}`} />
+              <img src={imageUrl(item.image_url) ?? ''} alt="" loading="lazy" width={112} height={112} className={`size-24 shrink-0 rounded-xl object-cover sm:size-28 ${item.is_available ? '' : 'opacity-50 grayscale'}`} />
             )}
           </li>
         ))}
