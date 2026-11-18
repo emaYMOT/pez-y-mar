@@ -63,6 +63,14 @@
           "foto": "media/catalogo/promo-oferta-salmon.webp",
           "disponible": true,
           "descripcion": "10 porciones de salmón de 200 g."
+        },
+        {
+          "nombre": "Langosta Cajun",
+          "precio": 150000,
+          "unidad": null,
+          "foto": "media/catalogo/promo-langosta-cajun.webp",
+          "disponible": true,
+          "descripcion": "4 langostas, 1 lb de mejillones, 1 lb de langostinos, 1 lb de camarón y 1 lb de jaiba."
         }
       ]
     },
