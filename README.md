@@ -6,7 +6,7 @@ Página tipo Linktree con video de fondo, catálogo digital por categorías y pa
 - **Catálogo** (`/#/catalogo`): cada categoría es un botón; al tocarla se ven solo sus productos.
 - **Panel** (`/#/admin`): editar botones, catálogo (categorías, productos, precios, fotos, agotados) y perfil.
 
-Hecha con React + Vite + Tailwind. Los datos viven en **Supabase** y la web se publica gratis en **GitHub Pages**.
+Hecha con React + Vite + Tailwind. Los datos viven en **Supabase** y la web se publica gratis en **Cloudflare Pages**.
 
 > Sin Supabase configurado la web funciona en **modo demo**: el panel guarda los cambios solo en tu navegador. Sirve para probar.
 
@@ -53,24 +53,41 @@ En la salida aparece una línea `Network: http://192.168.x.x:5173/`. Abre esa di
 
 Para usarlos en tu computador, copia `.env.example` como `.env` y pégalos ahí. La clave *anon* es pública por diseño; lo que protege los datos son las reglas de seguridad de `schema.sql` (solo los usuarios en la tabla `admins` pueden escribir).
 
-## 3. Publicar en GitHub Pages
+## 3. Publicar en Cloudflare Pages
 
-1. Crea un repositorio en GitHub y sube este proyecto a la rama `main`.
-2. En el repositorio: **Settings → Secrets and variables → Actions → New repository secret**, crea:
-   - `VITE_SUPABASE_URL` → el Project URL
-   - `VITE_SUPABASE_ANON_KEY` → la clave anon public
-3. **Settings → Pages → Source: GitHub Actions.**
-4. Cada vez que subas cambios a `main` la web se publica sola (pestaña **Actions** para ver el progreso). Queda en `https://<tu-usuario>.github.io/<nombre-del-repo>/`.
+El proyecto ya está creado y conectado al repositorio de GitHub:
 
-Si luego compras un dominio (por ejemplo `pesquerapezymar.com`), configúralo en **Settings → Pages → Custom domain**; no hay que cambiar nada en el código.
+- **Sitio:** https://pez-y-mar.pages.dev
+- **Repositorio:** `emaYMOT/pez-y-mar`, rama `main`
+- **Build:** `npm run build` → carpeta `dist`, con Node 22
 
-**Supabase en pausa:** el plan gratis pausa los proyectos tras unos 7 días sin uso. El flujo [`keepalive.yml`](.github/workflows/keepalive.yml) hace una consulta cada 3 días para evitarlo (usa los mismos secretos).
+Cada vez que subas cambios a `main`, Cloudflare compila y publica solo (en **Workers & Pages → pez-y-mar → Deployments** puedes ver el progreso). Las ramas y los PR generan despliegues de vista previa.
+
+Las variables de entorno se configuran en **Workers & Pages → pez-y-mar → Settings → Environment variables** (para *Production* y *Preview*):
+
+| Variable | Valor |
+| --- | --- |
+| `NODE_VERSION` | `22` |
+| `VITE_SUPABASE_URL` | el Project URL de Supabase |
+| `VITE_SUPABASE_ANON_KEY` | la clave anon public |
+
+### Dominio propio
+
+En **Workers & Pages → pez-y-mar → Custom domains** puedes agregar un dominio (por ejemplo `pesquerapezymar.com`). Si el dominio está en Cloudflare, se configura automáticamente; si no, te dan los registros DNS a copiar. No hay que cambiar nada en el código.
+
+Para crear un proyecto nuevo desde cero: **Workers & Pages → Create → Pages → Connect to Git**, eliges el repo, y en *Build settings* pones el comando `npm run build`, el directorio `dist` y las tres variables de arriba. La URL queda en `https://<nombre-del-proyecto>.pages.dev`.
+
+### GitHub Pages (opción anterior)
+
+Si prefieres volver a GitHub Pages, el flujo [`deploy.yml`](.github/workflows/deploy.yml) sigue funcionando: crea los secretos `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en el repo, activa **Settings → Pages → Source: GitHub Actions**, y la web queda en `https://<tu-usuario>.github.io/<nombre-del-repo>/`.
+
+**Supabase en pausa:** el plan gratis pausa los proyectos tras unos 7 días sin uso. El flujo [`keepalive.yml`](.github/workflows/keepalive.yml) hace una consulta cada 3 días para evitarlo (sigue activo aunque el sitio se publique en Cloudflare, porque vive en GitHub Actions).
 
 ## 4. Cambiar el video de fondo
 
 El video vive en el repositorio, en `public/media/`, para no gastar el límite de transferencia de Supabase.
 
-1. Prepara el video: **720p, sin audio, idealmente menos de 6 MB** (máximo absoluto de GitHub: 100 MB por archivo). Entre más liviano, más rápido carga en celular.
+1. Prepara el video: **720p, sin audio, idealmente menos de 6 MB** (límite de Cloudflare Pages: 25 MB por archivo). Entre más liviano, más rápido carga en celular.
    - Fácil: [HandBrake](https://handbrake.fr) → preset *Web / Creator 720p*, quita la pista de audio.
    - Con ffmpeg:
      ```bash
