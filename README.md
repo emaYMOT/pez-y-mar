@@ -61,9 +61,9 @@ El proyecto ya está creado y conectado al repositorio de GitHub:
 - **Repositorio:** `emaYMOT/pez-y-mar`, rama `main`
 - **Build:** `npm run build` → carpeta `dist`, con Node 22
 
-Cada vez que subas cambios a `main`, Cloudflare compila y publica solo (en **Workers & Pages → pez-y-mar → Deployments** puedes ver el progreso). Las ramas y los PR generan despliegues de vista previa.
+Cada vez que subas cambios a `main`, Cloudflare compila y publica solo (en **Workers & Pages → pezymar → Deployments** puedes ver el progreso). Las ramas y los PR generan despliegues de vista previa.
 
-Las variables de entorno se configuran en **Workers & Pages → pez-y-mar → Settings → Environment variables** (para *Production* y *Preview*):
+Las variables de entorno se configuran en **Workers & Pages → pezymar → Settings → Environment variables** (para *Production* y *Preview*):
 
 | Variable | Valor |
 | --- | --- |
@@ -73,7 +73,7 @@ Las variables de entorno se configuran en **Workers & Pages → pez-y-mar → Se
 
 ### Dominio propio
 
-En **Workers & Pages → pez-y-mar → Custom domains** puedes agregar un dominio (por ejemplo `pesquerapezymar.com`). Si el dominio está en Cloudflare, se configura automáticamente; si no, te dan los registros DNS a copiar. No hay que cambiar nada en el código.
+En **Workers & Pages → pezymar → Custom domains** puedes agregar un dominio (por ejemplo `pesquerapezymar.com`). Si el dominio está en Cloudflare, se configura automáticamente; si no, te dan los registros DNS a copiar. No hay que cambiar nada en el código.
 
 Para crear un proyecto nuevo desde cero: **Workers & Pages → Create → Pages → Connect to Git**, eliges el repo, y en *Build settings* pones el comando `npm run build`, el directorio `dist` y las tres variables de arriba. La URL queda en `https://<nombre-del-proyecto>.pages.dev`.
 
