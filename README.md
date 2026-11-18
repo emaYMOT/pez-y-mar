@@ -2,9 +2,9 @@
 
 Página tipo Linktree con video de fondo, catálogo digital por categorías y panel de administración. Réplica de la plantilla de Al Aire Gastrobar: el nombre y el vocabulario están en `src/marca.ts` y los colores en `src/index.css`.
 
-- **Inicio** (`/#/`): foto de perfil, descripción y botones.
-- **Catálogo** (`/#/catalogo`): cada categoría es un botón; al tocarla se ven solo sus productos.
-- **Panel** (`/#/admin`): editar botones, catálogo (categorías, productos, precios, fotos, agotados) y perfil.
+- **Inicio** (`/`): foto de perfil, descripción y botones.
+- **Catálogo** (`/catalogo`): cada categoría es un botón; al tocarla se ven solo sus productos.
+- **Panel** (`/admin`): editar botones, catálogo (categorías, productos, precios, fotos, agotados) y perfil.
 
 Hecha con React + Vite + Tailwind. Los datos viven en **Supabase** y la web se publica gratis en **Cloudflare Pages**.
 
@@ -21,7 +21,7 @@ npm install
 npm run dev
 ```
 
-Abre http://localhost:5173. El panel está en http://localhost:5173/#/admin.
+Abre http://localhost:5173. El panel está en http://localhost:5173/admin.
 
 ### Ver en el celular
 
@@ -77,9 +77,11 @@ En **Workers & Pages → pezymar → Custom domains** puedes agregar un dominio 
 
 Para crear un proyecto nuevo desde cero: **Workers & Pages → Create → Pages → Connect to Git**, eliges el repo, y en *Build settings* pones el comando `npm run build`, el directorio `dist` y las tres variables de arriba. La URL queda en `https://<nombre-del-proyecto>.pages.dev`.
 
-### GitHub Pages (opción anterior)
+### Rutas limpias
 
-Si prefieres volver a GitHub Pages, el flujo [`deploy.yml`](.github/workflows/deploy.yml) sigue funcionando: crea los secretos `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY` en el repo, activa **Settings → Pages → Source: GitHub Actions**, y la web queda en `https://<tu-usuario>.github.io/<nombre-del-repo>/`.
+Las direcciones son reales (`/catalogo`, `/admin`), sin el `#/`. El archivo [`public/_redirects`](public/_redirects) le dice a Cloudflare que devuelva `index.html` en cualquier ruta, y `vite.config.ts` sirve los assets desde la raíz (`/`).
+
+> Esto es propio de Cloudflare Pages: GitHub Pages no respeta `_redirects` y publica en una subcarpeta. Si algún día vuelves a GitHub Pages habría que volver a `createHashRouter` y `base: './'`. El flujo [`deploy.yml`](.github/workflows/deploy.yml) sigue en el repo, pero ya no publica las rutas limpias.
 
 **Supabase en pausa:** el plan gratis pausa los proyectos tras unos 7 días sin uso. El flujo [`keepalive.yml`](.github/workflows/keepalive.yml) hace una consulta cada 3 días para evitarlo (sigue activo aunque el sitio se publique en Cloudflare, porque vive en GitHub Actions).
 
@@ -103,7 +105,7 @@ Mientras no haya video, el inicio muestra una ladera de noche con luces animadas
 
 ## 5. Usar el panel
 
-Entra a `/#/admin` con el correo y contraseña del administrador.
+Entra a `/admin` con el correo y contraseña del administrador.
 
 | Pestaña | Qué se hace |
 | --- | --- |

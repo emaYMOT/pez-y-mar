@@ -8,7 +8,7 @@ export const marca = {
 
   // La sección de productos ("carta" en un restaurante, "catálogo" en una tienda).
   catalogo: {
-    ruta: '/catalogo', // dirección en la web: /#/catalogo
+    ruta: '/catalogo', // dirección en la web: /catalogo
     titulo: 'Nuestro catálogo',
     subtitulo: 'Del mar a tu paladar. Elige tus productos.',
     pestana: 'Catálogo', // pestaña del panel e ícono del botón
